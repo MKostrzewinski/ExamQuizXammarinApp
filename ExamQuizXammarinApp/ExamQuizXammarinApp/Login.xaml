@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamQuizXammarinApp.Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Login Panel" Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="Login" />
+                <Entry x:Name="entryLogin" Grid.Column="1" />
+                <Label Grid.Row="1" Text="Password" />
+                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True"/>
+
+            </Grid>
+            <Button Text="Login" Clicked="Button_Clicked_Login" />
+            <Button Text="Create Account" Clicked="Button_Clicked_CreateAccount"/>
+            <Button Text="Go to admin panel" Clicked="Button_Clicked_AdminPanelLogin"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

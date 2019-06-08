@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ExamQuizXammarinApp.Database;
-using ExamQuizXammarinApp.NewFolder;
+using ExamQuizXammarinApp.Model;
 
 namespace ExamQuizXammarinApp
 {

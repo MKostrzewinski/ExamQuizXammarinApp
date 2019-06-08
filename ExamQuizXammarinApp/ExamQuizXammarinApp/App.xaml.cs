@@ -11,7 +11,7 @@ namespace ExamQuizXammarinApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new CreateAccount());
+            MainPage = new NavigationPage(new Login());
         }
 
         protected override void OnStart()

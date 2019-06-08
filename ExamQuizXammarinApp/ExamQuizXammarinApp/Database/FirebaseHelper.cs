@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
-using ExamQuizXammarinApp.NewFolder;
+using ExamQuizXammarinApp.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Newtonsoft.Json;
@@ -73,7 +73,23 @@ namespace ExamQuizXammarinApp.Database
 
         }
 
+        public async Task<User> FindUserByLogin(string login)
+        {
+            var allUsers = await GetAllUsers();
+            await firebase
+              .Child("Users")
+              .OnceAsync<User>();
+            return allUsers.Where(a => a.Username == login).FirstOrDefault();
+        }
 
+        public async Task<User> FindUserByLoginAndPassword(string login, string password)
+        {
+            var allUsers = await GetAllUsers();
+            await firebase
+              .Child("Users")
+              .OnceAsync<User>();
+            return allUsers.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
+        }
 
     }
 }

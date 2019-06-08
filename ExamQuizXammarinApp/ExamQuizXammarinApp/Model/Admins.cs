@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExamQuizXammarinApp.NewFolder
+namespace ExamQuizXammarinApp.Model
 {
     class Admins
     {
