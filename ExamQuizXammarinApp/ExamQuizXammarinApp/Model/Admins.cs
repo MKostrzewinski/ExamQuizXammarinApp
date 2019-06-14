@@ -4,10 +4,14 @@ using System.Text;
 
 namespace ExamQuizXammarinApp.Model
 {
-    class Admins
+    class Question
     {
         public int ID { get; set; }
-        public string Username { get; set; }//
-        public string Password { get; set; }
+        public string QuestionContent { get; set; }
+        public string CorrectAnswer { get; set; }
+        public string WrongAnswer1 { get; set; }
+        public string WrongAnswer2 { get; set; }
+        public string WrongAnswer3 { get; set; }
+
     }
 }

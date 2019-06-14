@@ -30,8 +30,8 @@ namespace ExamQuizXammarinApp
 
             private async void BtnAdd_Clicked(object sender, EventArgs e)
             {
-                await firebaseHelper.AddUser(Convert.ToInt32(txtId.Text), txtUsername.Text, txtPassword.Text, txtEmail.Text);
-                txtId.Text = string.Empty;
+                await firebaseHelper.AddUser(txtUsername.Text, txtPassword.Text, txtEmail.Text);
+                //txtId.Text = string.Empty;
                 txtUsername.Text = string.Empty;
                 txtPassword.Text = string.Empty;
                 txtEmail.Text = string.Empty;

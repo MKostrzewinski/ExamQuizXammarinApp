@@ -26,16 +26,21 @@ namespace ExamQuizXammarinApp.Database
                   ID = item.Object.ID,
                   Username = item.Object.Username,
                   Password = item.Object.Password,
-                  Email = item.Object.Email
+                  Email = item.Object.Email,
+                  Score = item.Object.Score,
+                  Totalscore = item.Object.Totalscore
 
               }).ToList();
         }
-        public async Task AddUser(int id, string username, string password, string email)
+        public async Task AddUser(string username, string password, string email)
         {
+            var result = await FindLastUserID();
+            int id = result.ID;
+            id++;
 
             await firebase
               .Child("Users")
-              .PostAsync(new User() { ID = id, Username = username, Password = password, Email = email });
+              .PostAsync(new User() { ID = id, Username = username, Password = password, Email = email, Score = 0, Totalscore = 0  });
         }
 
 
@@ -89,6 +94,15 @@ namespace ExamQuizXammarinApp.Database
               .Child("Users")
               .OnceAsync<User>();
             return allUsers.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
+        }
+
+        private async Task<User> FindLastUserID()
+        {
+            var allUsers = await GetAllUsers();
+            await firebase
+              .Child("Users")
+              .OnceAsync<User>();
+            return allUsers.OrderBy(User => User.ID).LastOrDefault();
         }
 
     }

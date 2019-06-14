@@ -38,6 +38,7 @@ namespace ExamQuizXammarinApp
             else
             {
                 FirebaseHelper firebaseHelper = new FirebaseHelper();
+
                 var result = await firebaseHelper.FindUserByLoginAndPassword(entryLogin.Text, entryPassword.Text);
                 if (result != null)
                 {
