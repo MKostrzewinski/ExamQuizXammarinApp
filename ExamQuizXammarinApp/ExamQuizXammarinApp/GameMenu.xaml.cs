@@ -16,5 +16,18 @@ namespace ExamQuizXammarinApp
 		{
 			InitializeComponent ();
 		}
+        /*
+         * 
+         * 
+                    <ContentView BackgroundColor="Blue">
+                        <Button Text="New Game" BackgroundColor="Black"/>
+                    </ContentView>
+                    <ContentView BackgroundColor="Blue">
+                        <Button Text="set" BackgroundColor="Black"/>
+                    </ContentView>
+                    <ContentView BackgroundColor="Blue">
+                        <Button Text="scrbrd" BackgroundColor="Black"/>
+                    </ContentView>
+                    */
 	}
 }
