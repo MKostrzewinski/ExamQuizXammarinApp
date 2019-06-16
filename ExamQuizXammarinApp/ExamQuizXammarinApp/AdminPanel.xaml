@@ -5,9 +5,8 @@
     <!--Pages can be added as references or inline-->
 
     <StackLayout>
-        
+
         <Button Text="Add Admin" Clicked="Button_Clicked_Add_Admin"/>
-        <Button Text="Add Question" Clicked="Button_Clicked_Add_Question"/>
         <Button Text="Verify Question" Clicked="Button_Clicked_Verify_Question"/>
 
     </StackLayout>

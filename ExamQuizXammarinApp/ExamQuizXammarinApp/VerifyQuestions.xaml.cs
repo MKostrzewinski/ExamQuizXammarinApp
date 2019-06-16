@@ -21,16 +21,25 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Take_Question(object sender, EventArgs e)
         {
+            
             var take_suggested_question_id = await firebaseHelper.FindLastSuggestedQuestionsID();
-            int suggested_question_id = take_suggested_question_id.ID;
-            var question = await firebaseHelper.GetQuestion(suggested_question_id);
-           
-            txt_question_category.Text = question.Category;
-            txt_question.Text = question.QuestionText;
-            txt_correct_answear.Text = question.QuestionText;
-            txt_wrong_answear1.Text = question.WrongAnswer1;
-            txt_wrong_answear2.Text = question.WrongAnswer2;
-            txt_wrong_answear3.Text = question.WrongAnswer3;
+            if (take_suggested_question_id == null)
+            {
+                await DisplayAlert("End of questions", "There isn't more questions", "ok");
+                await Navigation.PushAsync(new AdminPanel());
+            }
+            else
+            {
+                int suggested_question_id = take_suggested_question_id.ID;
+                var question = await firebaseHelper.GetQuestion(suggested_question_id);
+
+                txt_question_category.Text = question.Category;
+                txt_question.Text = question.QuestionText;
+                txt_correct_answear.Text = question.CorrectAnswer;
+                txt_wrong_answear1.Text = question.WrongAnswer1;
+                txt_wrong_answear2.Text = question.WrongAnswer2;
+                txt_wrong_answear3.Text = question.WrongAnswer3;
+            }
             
 
         }
