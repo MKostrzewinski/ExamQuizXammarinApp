@@ -118,6 +118,36 @@ namespace ExamQuizXammarinApp.Database
             return allUsers.OrderBy(User => User.ID).LastOrDefault();
         }
 
+        /////////////////////////////////////////////////         Test Users Reset            /////////////////////////////////////////////
+
+        public async Task DeleteTestUserForReset(string testUserLogin)
+        {
+            var toDeleteQuestion = (await firebase
+              .Child("Users")
+              .OnceAsync<User>()).Where(a => a.Object.Username == testUserLogin).FirstOrDefault();
+            await firebase.Child("Users").Child(toDeleteQuestion.Key).DeleteAsync();
+
+        }
+
+        public async Task AddTestUserForReset(string username, string password, string email, int score, int totalScore)
+        {
+            var result = await FindLastUserID();        //  =======>
+            int id;
+            if (result != null)
+            {
+                id = result.ID;
+                id++;                        // this code block is responsible for ID autoincrement
+            }
+            else
+            {
+                id = 1;
+            }                       //                      <========
+
+            await firebase
+              .Child("Users")
+              .PostAsync(new User() { ID = id, Username = username, Password = password, Email = email, Score = score, Totalscore = totalScore });
+        }
+
         /////////////////////////////////////////////////         Admins                /////////////////////////////////////////////
         public async Task<List<Admins>> GetAllAdmins()
         {

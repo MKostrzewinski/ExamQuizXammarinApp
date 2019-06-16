@@ -8,6 +8,7 @@
 
         <Button Text="Add Admin" Clicked="Button_Clicked_Add_Admin"/>
         <Button Text="Verify Question" Clicked="Button_Clicked_Verify_Question"/>
+        <Button Text="Reset Test Users" Clicked="Button_Clicked_Reset_Test_Users"/>
 
     </StackLayout>
 
