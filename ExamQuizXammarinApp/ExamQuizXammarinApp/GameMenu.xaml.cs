@@ -9,25 +9,16 @@ using Xamarin.Forms.Xaml;
 
 namespace ExamQuizXammarinApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class GameMenu : ContentPage
-	{
-		public GameMenu ()
-		{
-			InitializeComponent ();
-		}
-        /*
-         * 
-         * 
-                    <ContentView BackgroundColor="Blue">
-                        <Button Text="New Game" BackgroundColor="Black"/>
-                    </ContentView>
-                    <ContentView BackgroundColor="Blue">
-                        <Button Text="set" BackgroundColor="Black"/>
-                    </ContentView>
-                    <ContentView BackgroundColor="Blue">
-                        <Button Text="scrbrd" BackgroundColor="Black"/>
-                    </ContentView>
-                    */
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class GameMenu : ContentPage
+    {
+        public GameMenu()
+        {
+            InitializeComponent();
+        }
+        private async void Button_Clicked_SuggestQuestion(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewQuestion());
+        }
+    }
 }

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExamQuizXammarinApp.NewQuestion">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Suggest a question" Grid.Column="1" />
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Picker x:Name="CategoryPicker"
+                Title="Select a category"
+                TitleColor="Red">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>History of Art</x:String>
+                            <x:String>Mathematics</x:String>
+                            <x:String>History</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Question" Grid.Row="2" />
+                <Entry x:Name="entryQuestion" Grid.Column="1" Grid.Row="2" />
+                <Label Grid.Row="3" Text="Correct Answer" />
+                <Entry x:Name="entryCorrectAnswer" Grid.Row="3" Grid.Column="1"/>
+                <Label Grid.Row="4" Text="Wrong Answer 1" />
+                <Entry x:Name="entryWrongAnswer1" Grid.Row="4" Grid.Column="1"/>
+                <Label Grid.Row="5" Text="Wrong Answer 2" />
+                <Entry x:Name="entryWrongAnswer2" Grid.Row="5" Grid.Column="1"/>
+                <Label Grid.Row="6" Text="Wrong Answer 3" />
+                <Entry x:Name="entryWrongAnswer3" Grid.Row="6" Grid.Column="1"/>
+
+            </Grid>
+            <Button Text="Submit" Clicked="Button_Clicked_Submit" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

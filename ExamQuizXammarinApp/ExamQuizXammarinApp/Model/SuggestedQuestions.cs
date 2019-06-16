@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExamQuizXammarinApp.Model
 {
-    class Questions
+    class SuggestedQuestions
     {
         public int ID { get; set; }
         public string Category { get; set; }

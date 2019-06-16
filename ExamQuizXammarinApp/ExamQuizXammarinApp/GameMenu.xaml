@@ -4,47 +4,48 @@
              x:Class="ExamQuizXammarinApp.GameMenu">
 
     <ContentPage.Content>
-       
-                <StackLayout>
 
-                     
-              
-                      <Grid>
-                        <Grid.ColumnDefinitions>
-                          <ColumnDefinition Width="Auto" />
-                          <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                          <RowDefinition Height="Auto" />
-                          <RowDefinition Height="Auto" />
-                          <RowDefinition Height="Auto" />
-                          <RowDefinition Height="Auto" />
-                          <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        
-                      <Label  Text="Username" Grid.Column="2" Grid.Row="1" ></Label>
-                      <Button Text="Settings" Grid.Column="3" Grid.Row="1"  />
-                      <Button Text="New Game" Grid.Column="2" Grid.Row="3" />
-                      <Label Text="Your Score" Grid.Column="2" Grid.Row="4"></Label>
-                      <Label Text="Your TotalScore" Grid.Column="2" Grid.Row="5"></Label>
-                      <Button Text="Scoreboard" Grid.Column="2" Grid.Row="6"/>
+        <StackLayout>
 
-                        <Label Text="Top3" Grid.Column="2" Grid.Row="7"></Label>
-                        <Label Text="ziomek1" Grid.Column="2" Grid.Row="8"></Label>
-                        <Label Text="ziomek2" Grid.Column="2" Grid.Row="9"></Label>
-                        <Label Text="ziomek3" Grid.Column="2" Grid.Row="10"></Label>
-                        
-                        <Label Text="10 000" Grid.Column="3" Grid.Row="8"></Label>
-                        <Label Text="25 000" Grid.Column="3" Grid.Row="9"></Label>
-                        <Label Text="45 000" Grid.Column="3" Grid.Row="10"></Label>
 
-                      </Grid>
-                    
-                    
-                  
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label  Text="Username" Grid.Column="2" Grid.Row="1" ></Label>
+                <Button Text="Settings" Grid.Column="3" Grid.Row="1"  />
+                <Button Text="Suggest a question"  Clicked="Button_Clicked_SuggestQuestion" Grid.Column="3" Grid.Row="2"  />
+                <Button Text="New Game" Grid.Column="2" Grid.Row="3" />
+                <Label Text="Your Score" Grid.Column="2" Grid.Row="4"></Label>
+                <Label Text="Your TotalScore" Grid.Column="2" Grid.Row="5"></Label>
+                <Button Text="Scoreboard" Grid.Column="2" Grid.Row="6"/>
+
+                <Label Text="Top3" Grid.Column="2" Grid.Row="7"></Label>
+                <Label Text="ziomek1" Grid.Column="2" Grid.Row="8"></Label>
+                <Label Text="ziomek2" Grid.Column="2" Grid.Row="9"></Label>
+                <Label Text="ziomek3" Grid.Column="2" Grid.Row="10"></Label>
+
+                <Label Text="10 000" Grid.Column="3" Grid.Row="8"></Label>
+                <Label Text="25 000" Grid.Column="3" Grid.Row="9"></Label>
+                <Label Text="45 000" Grid.Column="3" Grid.Row="10"></Label>
+
+            </Grid>
+
+
+
         </StackLayout>
 
-      
+
     </ContentPage.Content>
 </ContentPage>
 
