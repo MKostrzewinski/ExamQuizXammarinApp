@@ -29,5 +29,10 @@ namespace ExamQuizXammarinApp
         {
             await Navigation.PushAsync(new VerifyQuestions());
         }
+
+        private async void Button_Clicked_Verify_Question(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerifyQuestions());
+        }
     }
 }

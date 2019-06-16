@@ -197,7 +197,24 @@ namespace ExamQuizXammarinApp.Database
               }).ToList();
         }
 
-        private async Task<SuggestedQuestions> FindLastSuggestedQuestionsID()  // this function is returning the highest ID in SuggestedQuestions table
+        public async Task<SuggestedQuestions> GetQuestion(int question_id)
+        {
+            var allQuestions = await GetAllSuggestedQuestions();
+            await firebase
+              .Child("SuggestedQuestion")
+              .OnceAsync<SuggestedQuestions>();
+            return allQuestions.Where(a => a.ID == question_id).FirstOrDefault();
+        }
+
+        public async Task<SuggestedQuestions> GetQuestion()
+        {
+            var allQuestions = await GetAllSuggestedQuestions();
+            await firebase
+              .Child("SuggestedQuestion")
+              .OnceAsync<SuggestedQuestions>();
+            return allQuestions.FirstOrDefault();
+        }
+        public async Task<SuggestedQuestions> FindLastSuggestedQuestionsID()  // this function is returning the highest ID in SuggestedQuestions table
         {
             var allSuggestedQuestions = await GetAllSuggestedQuestions();
             await firebase
@@ -224,5 +241,40 @@ namespace ExamQuizXammarinApp.Database
               .PostAsync(new SuggestedQuestions() { ID = id, Category = category, QuestionText = questionText, CorrectAnswer = correctAnswer, WrongAnswer1 = wrongAnswer1, WrongAnswer2 = wrongAnswer2, WrongAnswer3 = wrongAnswer3 });
         }
 
+
+        public async Task DeleteSuggestedQuestion(int questionId)
+        {
+            var toDeleteQuestion = (await firebase
+              .Child("SuggestedQuestion")
+              .OnceAsync<SuggestedQuestions>()).Where(a => a.Object.ID == questionId).FirstOrDefault();
+            await firebase.Child("SuggestedQuestion").Child(toDeleteQuestion.Key).DeleteAsync();
+
+        }
+
+        ////////////////////////////////////////////////////   Questions ///////////////////////////////////////////////
+
+
+        public async Task AddQuestion(string category, string questionText,
+                                       string correctAnswer, string wrongAnswer1, string wrongAnswer2,
+                                       string wrongAnswer3)
+        {
+            var result = await FindLastSuggestedQuestionsID();        //  =======>
+            int id;
+            if (result != null)
+            {
+                id = result.ID;
+                id++;                        // this code block is responsible for ID autoincrement
+            }
+            else
+            {
+                id = 1;
+            }                       //                      <========
+            await firebase
+              .Child("Question")
+              .PostAsync(new Questions() { ID = id, Category = category,
+                  QuestionText = questionText, CorrectAnswer = correctAnswer,
+                  WrongAnswer1 = wrongAnswer1, WrongAnswer2 = wrongAnswer2,
+                  WrongAnswer3 = wrongAnswer3 });
+        }
     }
 }

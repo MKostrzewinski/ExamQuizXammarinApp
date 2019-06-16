@@ -4,9 +4,16 @@
              x:Class="ExamQuizXammarinApp.VerifyQuestions">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="txt_question_category"/>
+            <Label x:Name="txt_question"/>
+            <Label x:Name="txt_correct_answear"/>
+            <Label x:Name="txt_wrong_answear1"/>
+            <Label x:Name="txt_wrong_answear2"/>
+            <Label x:Name="txt_wrong_answear3"/>
+            <Button Text="Take Question" Clicked="Button_Clicked_Take_Question"/>
+            <Button Text="Delete Question" Clicked="Button_Clicked_Delete_Question"/>
+            <Button Text="Add Question" Clicked="Button_Clicked_Add_Question"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
