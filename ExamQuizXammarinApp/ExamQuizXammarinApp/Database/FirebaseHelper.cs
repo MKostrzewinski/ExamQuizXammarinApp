@@ -132,7 +132,7 @@ namespace ExamQuizXammarinApp.Database
 
               }).ToList();
         }
-        public async Task<Admins> FindAdminsByLogin(string login) // This function checks if the username is available
+        public async Task<Admins> FindAdminsByLogin(string login) // This function checks if the admin name is available
         {
             var allAdmins = await GetAllAdmins();
             await firebase
@@ -140,7 +140,8 @@ namespace ExamQuizXammarinApp.Database
               .OnceAsync<Admins>();
             return allAdmins.Where(a => a.Username == login).FirstOrDefault();
         }
-        public async Task<Admins> FindAdminByLoginAndPassword(string login, string password) // This function is checking the login data
+
+        public async Task<Admins> FindAdminByLoginAndPassword(string login, string password) // This function is checking the login to admin panel data
         {
             var allAdmins = await GetAllAdmins();
             await firebase
@@ -148,6 +149,7 @@ namespace ExamQuizXammarinApp.Database
               .OnceAsync<Admins>();
             return allAdmins.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
         }
+
         private async Task<Admins> FindLastAdminsID()  // this function is returning the highest ID in Admins table
         {
             var allAdmins = await GetAllAdmins();
@@ -155,8 +157,8 @@ namespace ExamQuizXammarinApp.Database
               .Child("Admins")
               .OnceAsync<Admins>();
             return allAdmins.OrderBy(Admins => Admins.ID).LastOrDefault();
-
         }
+
         public async Task AddAdmin(string username, string password, string email)
         {
             var result = await FindLastAdminsID();        //  =======>

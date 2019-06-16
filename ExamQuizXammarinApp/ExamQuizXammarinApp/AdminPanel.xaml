@@ -5,15 +5,10 @@
     <!--Pages can be added as references or inline-->
 
     <StackLayout>
-
-        <Label Text="Add Admin"/>
-        <Entry x:Name="txtUsername" Placeholder="Username"/>
-        <Entry x:Name="txtPassword" Placeholder="Password"/>
-        <Entry x:Name="txtEmail" Placeholder="Email"/>
-        <Button Text="Add" Clicked="Button_Clicked_Admin_Add"/>
-        <Label Text="Add Question>"/>
-        <Entry x:Name="entryQuestion"/>
-   
+        
+        <Button Text="Add Admin" Clicked="Button_Clicked_Add_Admin"/>
+        <Button Text="Add Question" Clicked="Button_Clicked_Add_Question"/>
+        
     </StackLayout>
 
 </ContentPage>

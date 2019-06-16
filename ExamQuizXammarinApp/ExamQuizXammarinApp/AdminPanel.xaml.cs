@@ -19,26 +19,15 @@ namespace ExamQuizXammarinApp
             InitializeComponent();
         }
 
-       
 
-        private async void Button_Clicked_Admin_Add(object sender, EventArgs e)
+        private async void Button_Clicked_Add_Admin(object sender, EventArgs e)
         {
-            var result = firebaseHelper.FindAdminsByLogin(txtUsername.Text);
-            
-            if (result != null)
-            {
-                await DisplayAlert("Fail", "This username is not available", "OK");
-                txtUsername.Text = string.Empty;
-            }
-            
+            await Navigation.PushAsync(new CreateNewAdmin());
+        }
 
-            else
-            {
-                await firebaseHelper.AddAdmin(txtUsername.Text, txtPassword.Text, txtEmail.Text);
-                await DisplayAlert("Success", "Admin Added Successfully", "OK");
-                await Navigation.PushAsync(new AdminPanel());
-              
-            }
+        private async void Button_Clicked_Add_Question(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new VerifyQuestions());
         }
     }
 }

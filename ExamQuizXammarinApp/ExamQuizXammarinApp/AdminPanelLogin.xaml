@@ -26,7 +26,7 @@
                 <Label Text="Login" />
                 <Entry x:Name="entryLogin" Grid.Column="1" />
                 <Label Grid.Row="1" Text="Password" />
-                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" />
+                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True"/>
             </Grid>
             <Button Text="Login" Clicked="Button_Clicked_AdminLogin" />
         </StackLayout>
