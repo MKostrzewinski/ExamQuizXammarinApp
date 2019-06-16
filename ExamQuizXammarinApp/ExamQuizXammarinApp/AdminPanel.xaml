@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamQuizXammarinApp.AdminPanel">
-  <!--Pages can be added as references or inline-->
-    
-    <ContentPage Title="Add User">
-        <Label Text="something nice" />
-    </ContentPage>
-    
-    <ContentPage Title="Add Admin">
-        <Label Text="something fine" />
-    </ContentPage>
-    
-    <ContentPage Title="Add Question">
+    <!--Pages can be added as references or inline-->
+
+    <StackLayout>
+
+        <Label Text="Add Admin"/>
+        <Entry x:Name="txtUsername" Placeholder="Username"/>
+        <Entry x:Name="txtPassword" Placeholder="Password"/>
+        <Entry x:Name="txtEmail" Placeholder="Email"/>
+        <Button Text="Add" Clicked="Button_Clicked_Admin_Add"/>
+        <Label Text="Add Question>"/>
         <Entry x:Name="entryQuestion"/>
-    </ContentPage>
+   
+    </StackLayout>
+
+</ContentPage>
+
     
-</TabbedPage>

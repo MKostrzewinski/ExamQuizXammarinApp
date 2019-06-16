@@ -66,7 +66,6 @@ namespace ExamQuizXammarinApp.Database
         }
 
 
-
         public async Task UpdateUser(int userId, string username, string password, string email)
         {
             var toUpdateUser = (await firebase
@@ -78,7 +77,6 @@ namespace ExamQuizXammarinApp.Database
               .Child(toUpdateUser.Key)
               .PutAsync(new User() { ID = userId, Username = username, Password = password, Email = email });
         }
-
 
 
         public async Task DeleteUser(int userId)
@@ -99,6 +97,8 @@ namespace ExamQuizXammarinApp.Database
             return allUsers.Where(a => a.Username == login).FirstOrDefault();
         }
 
+      
+
         public async Task<User> FindUserByLoginAndPassword(string login, string password) // This function is checking the login data
         {
             var allUsers = await GetAllUsers();
@@ -108,6 +108,7 @@ namespace ExamQuizXammarinApp.Database
             return allUsers.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
         }
 
+
         private async Task<User> FindLastUserID()  // this function is returning the highest ID in User table
         {
             var allUsers = await GetAllUsers();
@@ -115,6 +116,64 @@ namespace ExamQuizXammarinApp.Database
               .Child("Users")
               .OnceAsync<User>();
             return allUsers.OrderBy(User => User.ID).LastOrDefault();
+        }
+
+        /////////////////////////////////////////////////         Admins                /////////////////////////////////////////////
+        public async Task<List<Admins>> GetAllAdmins()
+        {
+            return (await firebase
+              .Child("Admins")
+              .OnceAsync<Admins>()).Select(item => new Admins
+              {
+                  ID = item.Object.ID,
+                  Username = item.Object.Username,
+                  Password = item.Object.Password,
+                  Email = item.Object.Email,
+
+              }).ToList();
+        }
+        public async Task<Admins> FindAdminsByLogin(string login) // This function checks if the username is available
+        {
+            var allAdmins = await GetAllAdmins();
+            await firebase
+              .Child("Admins")
+              .OnceAsync<Admins>();
+            return allAdmins.Where(a => a.Username == login).FirstOrDefault();
+        }
+        public async Task<Admins> FindAdminByLoginAndPassword(string login, string password) // This function is checking the login data
+        {
+            var allAdmins = await GetAllAdmins();
+            await firebase
+              .Child("Admins")
+              .OnceAsync<Admins>();
+            return allAdmins.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
+        }
+        private async Task<Admins> FindLastAdminsID()  // this function is returning the highest ID in Admins table
+        {
+            var allAdmins = await GetAllAdmins();
+            await firebase
+              .Child("Admins")
+              .OnceAsync<Admins>();
+            return allAdmins.OrderBy(Admins => Admins.ID).LastOrDefault();
+
+        }
+        public async Task AddAdmin(string username, string password, string email)
+        {
+            var result = await FindLastAdminsID();        //  =======>
+            int id;
+            if (result != null)
+            {
+                id = result.ID;
+                id++;                        // this code block is responsible for ID autoincrement
+            }
+            else
+            {
+                id = 1;
+            }                       //                      <========
+
+            await firebase
+              .Child("Admins")
+              .PostAsync(new Admins() { ID = id, Username = username, Password = password, Email = email });
         }
 
         /////////////////////////////////////////////////     Suggested Questions    /////////////////////////////////////////////////

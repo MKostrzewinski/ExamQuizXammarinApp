@@ -28,7 +28,7 @@
                 <Label Grid.Row="1" Text="Password" />
                 <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" />
             </Grid>
-            <Button Text="Login" />
+            <Button Text="Login" Clicked="Button_Clicked_AdminLogin" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
