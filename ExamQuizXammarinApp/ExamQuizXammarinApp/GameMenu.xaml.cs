@@ -20,6 +20,12 @@ namespace ExamQuizXammarinApp
         {
             await Navigation.PushAsync(new NewQuestion());
         }
+        
+
+        private async void Button_Clicked_New_Game(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChooseCategory());
+        }
 
         private async void Button_Clicked_Scoreboard(object sender, EventArgs e)
         {

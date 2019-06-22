@@ -4,12 +4,19 @@
              x:Class="ExamQuizXammarinApp.Game">
     <ContentPage.Content>
         <StackLayout>
-            
-            <Label Text="We need to figure out how this should look like!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-            />
-            
+
+            <Picker x:Name="CategoryPicker"
+                Title="Select a category"
+                TitleColor="Red">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>History of Art</x:String>
+                        <x:String>Mathematics</x:String>
+                        <x:String>History</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

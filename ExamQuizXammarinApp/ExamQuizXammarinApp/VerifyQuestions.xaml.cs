@@ -27,6 +27,10 @@ namespace ExamQuizXammarinApp
             {
                 await DisplayAlert("End of questions", "There isn't more questions", "ok");
                 await Navigation.PushAsync(new AdminPanel());
+            } if (take_suggested_question_id == null)
+            {
+                await DisplayAlert("End of questions", "There isn't more questions", "ok");
+                await Navigation.PushAsync(new AdminPanel());
             }
             else
             {

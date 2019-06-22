@@ -25,7 +25,7 @@
                 <Label  Text="Username" Grid.Column="2" Grid.Row="1" ></Label>
                 <Button Text="Settings" Grid.Column="3" Grid.Row="1"  />
                 <Button Text="Suggest a question"  Clicked="Button_Clicked_SuggestQuestion" Grid.Column="3" Grid.Row="2"  />
-                <Button Text="New Game" Grid.Column="2" Grid.Row="3" />
+                <Button Text="New Game" Clicked="Button_Clicked_New_Game" Grid.Column="2" Grid.Row="3" />
                 <Label Text="Your Score" Grid.Column="2" Grid.Row="4"></Label>
                 <Label Text="Your TotalScore" Grid.Column="2" Grid.Row="5"></Label>
                 <Button Text="Scoreboard" Clicked="Button_Clicked_Scoreboard" Grid.Column="2" Grid.Row="6"/>

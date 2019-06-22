@@ -301,22 +301,82 @@ namespace ExamQuizXammarinApp.Database
                                        string wrongAnswer3)
         {
             var result = await FindLastSuggestedQuestionsID();        //  =======>
-            int id;
+            
+            var id = await FindLastQuestionID();
+            int id_value =  id.ID;
+
             if (result != null)
             {
-                id = result.ID;
-                id++;                        // this code block is responsible for ID autoincrement
+                
+
+                id_value++;                        // this code block is responsible for ID autoincrement
             }
             else
             {
-                id = 1;
+                id_value = 1;
             }                       //                      <========
             await firebase
               .Child("Question")
-              .PostAsync(new Questions() { ID = id, Category = category,
+              .PostAsync(new Questions() { ID = id_value, Category = category,
                   QuestionText = questionText, CorrectAnswer = correctAnswer,
                   WrongAnswer1 = wrongAnswer1, WrongAnswer2 = wrongAnswer2,
                   WrongAnswer3 = wrongAnswer3 });
         }
+
+        public async Task<Questions> GetAllQuestionsByCategory(string category, int id)  // This function returns question from specify category based on ID
+        {
+            var allQuestions = await GetAllQuestions();
+            await firebase
+             .Child("Question")
+             .OnceAsync<Questions>();
+            return allQuestions.Where(a => a.Category == category && a.ID == id).FirstOrDefault();
+        }
+
+
+        public async Task<List<Questions>> GetAllQuestions()  //This function returns all of the records in the form of a list
+        {
+            return (await firebase
+              .Child("Question")
+              .OnceAsync<Questions>()).Select(item => new Questions
+              {
+                  ID = item.Object.ID,
+                  Category = item.Object.Category,
+                  QuestionText = item.Object.QuestionText,
+                  CorrectAnswer = item.Object.CorrectAnswer,
+                  WrongAnswer1 = item.Object.WrongAnswer1,
+                  WrongAnswer2 = item.Object.WrongAnswer2,
+                  WrongAnswer3 = item.Object.WrongAnswer3
+
+    }).ToList();
+        }
+
+        public async Task<Questions> FindLastQuestionID(string category)  // this function is returning the highest ID in Questions table based on category
+        {
+            var allQuestions = await GetAllQuestions();
+            await firebase
+              .Child("Question")
+              .OnceAsync<Questions>();
+            return allQuestions.Where(a => a.Category == category).OrderBy(Questions => Questions.ID).LastOrDefault();
+        }
+        public async Task<Questions> FindLastQuestionID()  // this function is returning the highest ID in Questions table
+        {
+            var allQuestions = await GetAllQuestions();
+            await firebase
+              .Child("Question")
+              .OnceAsync<Questions>();
+            return allQuestions.OrderBy(Questions => Questions.ID).LastOrDefault();
+        }
+
+
+        public async Task<Questions> FindFirstQuestionID(string category)  // this function is returning the lowest ID in Questions table based on category
+        {
+            var allQuestions = await GetAllQuestions();
+            await firebase
+              .Child("Question")
+              .OnceAsync<Questions>();
+            return allQuestions.Where(a=>a.Category == category).OrderBy(Questions => Questions.ID).FirstOrDefault();
+        }
+
+
     }
 }
