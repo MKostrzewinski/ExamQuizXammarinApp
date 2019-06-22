@@ -105,7 +105,7 @@ namespace ExamQuizXammarinApp.Database
             await firebase
               .Child("Users")
               .OnceAsync<User>();
-            return allUsers.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
+            return allUsers.Where(a => a.Username == login && a.Password == password).FirstOrDefault();
         }
 
 
@@ -116,6 +116,18 @@ namespace ExamQuizXammarinApp.Database
               .Child("Users")
               .OnceAsync<User>();
             return allUsers.OrderBy(User => User.ID).LastOrDefault();
+        }
+
+
+        public async Task<List<User>>  GetAllUsersOrderedByScore()
+        {
+            return (await firebase
+              .Child("Users")
+              .OnceAsync<User>()).Select(item => new User
+              {
+                  Username = item.Object.Username,
+                  Score = item.Object.Score
+              }).OrderByDescending(User => User.Score).ToList();
         }
 
         /////////////////////////////////////////////////         Test Users Reset            /////////////////////////////////////////////
@@ -177,7 +189,7 @@ namespace ExamQuizXammarinApp.Database
             await firebase
               .Child("Admins")
               .OnceAsync<Admins>();
-            return allAdmins.Where(a => a.Username == login || a.Password == password).FirstOrDefault();
+            return allAdmins.Where(a => a.Username == login && a.Password == password).FirstOrDefault();
         }
 
         private async Task<Admins> FindLastAdminsID()  // this function is returning the highest ID in Admins table

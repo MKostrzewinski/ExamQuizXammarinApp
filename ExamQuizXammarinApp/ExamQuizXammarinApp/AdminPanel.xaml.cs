@@ -32,13 +32,23 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Reset_Test_Users(object sender, EventArgs e)
         {
+            var res = await DisplayAlert("Are you sure?", "This action generates a lot of data traffic and may take some time", "Ok", "Cancel");
+            if (res)
+            {
+                DoReset();
+            }
+        }
+
+        private async void DoReset()
+        {
+            await DisplayAlert("Resetting is in progress", "It may take a few minutes", "Ok");
             FirebaseHelper firebaseHelper = new FirebaseHelper();
 
-            for (int i= 1 ; i < 101; i++)
+            for (int i = 1; i < 101; i++)
             {
                 string login = "TestUser" + i.ToString();
                 var result = await firebaseHelper.FindUserByLogin(login);
-                if(result != null)
+                if (result != null)
                 {
                     await firebaseHelper.DeleteTestUserForReset(login);
                 }

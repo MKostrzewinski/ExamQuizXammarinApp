@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamQuizXammarinApp.Database;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,20 @@ namespace ExamQuizXammarinApp
 	{
 		public Scoreboard ()
 		{
-			InitializeComponent ();
-		}
-	}
+            InitializeComponent ();
+            GetScoreboard();
+
+        }
+
+        private async void GetScoreboard()
+        {
+            FirebaseHelper firebaseHelper = new FirebaseHelper();
+
+            var result = await firebaseHelper.GetAllUsersOrderedByScore();
+
+            lst.ItemsSource = result;
+
+        }
+
+    }
 }

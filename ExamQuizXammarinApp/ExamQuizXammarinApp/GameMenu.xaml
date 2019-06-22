@@ -28,7 +28,7 @@
                 <Button Text="New Game" Grid.Column="2" Grid.Row="3" />
                 <Label Text="Your Score" Grid.Column="2" Grid.Row="4"></Label>
                 <Label Text="Your TotalScore" Grid.Column="2" Grid.Row="5"></Label>
-                <Button Text="Scoreboard" Grid.Column="2" Grid.Row="6"/>
+                <Button Text="Scoreboard" Clicked="Button_Clicked_Scoreboard" Grid.Column="2" Grid.Row="6"/>
 
                 <Label Text="Top3" Grid.Column="2" Grid.Row="7"></Label>
                 <Label Text="ziomek1" Grid.Column="2" Grid.Row="8"></Label>
