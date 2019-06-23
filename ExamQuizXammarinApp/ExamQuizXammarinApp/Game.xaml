@@ -10,12 +10,12 @@
             <Label Text="Question: "/>
             <Label x:Name="txt_question"/>
             <Label Text="Answers: "/>
-            <Button x:Name="txt_correct_answear" IsVisible="False" />
-            <Button x:Name="txt_wrong_answear1" IsVisible="False"  />
-            <Button x:Name="txt_wrong_answear2" IsVisible="False"  />
-            <Button x:Name="txt_wrong_answear3" IsVisible="False"  />
+            <Button x:Name="txt_Answear1" IsVisible="False" Clicked="Button_Clicked_Answear1"/>
+            <Button x:Name="txt_Answear2" IsVisible="False"  Clicked="Button_Clicked_Answear2"/>
+            <Button x:Name="txt_Answear3" IsVisible="False"  Clicked="Button_Clicked_Answear3"/>
+            <Button x:Name="txt_Answear4" IsVisible="False"  Clicked="Button_Clicked_Answear4"/>
             <Button x:Name="start_button" Text="Start" Clicked="Button_Clicked_Next_Question"/>
-            <Button x:Name="next_question_btn" Text="Next Question" Clicked="Button_Clicked_Next_Question" IsVisible="False"/>
+            <!--<Button x:Name="next_question_btn" Text="Next Question" Clicked="Button_Clicked_Next_Question" IsVisible="False"/>-->
 
 
         </StackLayout>

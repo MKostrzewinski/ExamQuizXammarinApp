@@ -78,6 +78,18 @@ namespace ExamQuizXammarinApp.Database
               .PutAsync(new User() { ID = userId, Username = username, Password = password, Email = email });
         }
 
+        public async Task UpdateUserScore(int userId, int userScore, int userTotalscore)
+        {
+            var toUpdateUser = (await firebase
+              .Child("Users")
+              .OnceAsync<User>()).Where(a => a.Object.ID == userId).FirstOrDefault();
+
+            await firebase
+              .Child("Users")
+              .Child(toUpdateUser.Key)
+              .PutAsync(new User() { ID = userId, Score = userScore, Totalscore = userTotalscore});
+        }
+
 
         public async Task DeleteUser(int userId)
         {
@@ -366,6 +378,7 @@ namespace ExamQuizXammarinApp.Database
               .OnceAsync<Questions>();
             return allQuestions.Where(a => a.Category == category).OrderBy(Questions => Questions.ID).LastOrDefault();
         }
+
         public async Task<Questions> FindLastQuestionID()  // this function is returning the highest ID in Questions table
         {
             var allQuestions = await GetAllQuestions();

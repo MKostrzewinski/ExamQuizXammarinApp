@@ -20,7 +20,10 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Submit(object sender, EventArgs e)
         {
-            if (String.IsNullOrWhiteSpace((string)CategoryPicker.SelectedItem) || String.IsNullOrWhiteSpace(entryQuestion.Text) || String.IsNullOrWhiteSpace(entryCorrectAnswer.Text) || String.IsNullOrWhiteSpace(entryWrongAnswer1.Text) || String.IsNullOrWhiteSpace(entryWrongAnswer2.Text) || String.IsNullOrWhiteSpace(entryWrongAnswer3.Text))
+            if (String.IsNullOrWhiteSpace((string)CategoryPicker.SelectedItem) 
+                || String.IsNullOrWhiteSpace(entryQuestion.Text) || String.IsNullOrWhiteSpace(entryCorrectAnswer.Text) 
+                || String.IsNullOrWhiteSpace(entryWrongAnswer1.Text) || String.IsNullOrWhiteSpace(entryWrongAnswer2.Text) 
+                || String.IsNullOrWhiteSpace(entryWrongAnswer3.Text))
             {
                 await DisplayAlert("Fail!", "You left empty fields", "OK");
                 await Navigation.PushAsync(new NewQuestion());

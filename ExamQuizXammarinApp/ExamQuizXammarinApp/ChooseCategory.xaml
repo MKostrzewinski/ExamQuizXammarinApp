@@ -10,7 +10,7 @@
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
                     <x:String>History of Art</x:String>
-                    <x:String>Mathematics</x:String>
+                        <x:String>Mathematics</x:String>
                     <x:String>History</x:String>
                 </x:Array>
             </Picker.ItemsSource>

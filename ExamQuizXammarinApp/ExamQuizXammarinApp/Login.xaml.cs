@@ -13,6 +13,7 @@ namespace ExamQuizXammarinApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Login : ContentPage
 	{
+        public static int CurrentUserID = 0;
 		public Login ()
 		{
 			InitializeComponent ();
@@ -33,6 +34,7 @@ namespace ExamQuizXammarinApp
             if (String.IsNullOrWhiteSpace(entryLogin.Text) || String.IsNullOrWhiteSpace(entryPassword.Text))
             {
                 await DisplayAlert("Fail!", "You left empty fields", "OK");
+                CurrentUserID = 0;                  //just for case...
                 await Navigation.PushAsync(new Login());
             }
             else
@@ -42,11 +44,13 @@ namespace ExamQuizXammarinApp
                 var result = await firebaseHelper.FindUserByLoginAndPassword(entryLogin.Text, entryPassword.Text);
                 if (result != null)
                 {
+                    CurrentUserID = result.ID; 
                     await Navigation.PushAsync(new GameMenu());
                 }
                 else
                 {
                     await DisplayAlert("Fail!", "Wrong login or password", "OK");
+                    CurrentUserID = 0;                  //just for case...
                     await Navigation.PushAsync(new Login());
                 }
             }
