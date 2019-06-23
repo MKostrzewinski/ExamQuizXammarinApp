@@ -97,7 +97,7 @@ namespace ExamQuizXammarinApp.Database
             return allUsers.Where(a => a.Username == login).FirstOrDefault();
         }
 
-      
+
 
         public async Task<User> FindUserByLoginAndPassword(string login, string password) // This function is checking the login data
         {
@@ -119,7 +119,7 @@ namespace ExamQuizXammarinApp.Database
         }
 
 
-        public async Task<List<User>>  GetAllUsersOrderedByScore()
+        public async Task<List<User>> GetAllUsersOrderedByScore()
         {
             return (await firebase
               .Child("Users")
@@ -301,13 +301,13 @@ namespace ExamQuizXammarinApp.Database
                                        string wrongAnswer3)
         {
             var result = await FindLastSuggestedQuestionsID();        //  =======>
-            
+
             var id = await FindLastQuestionID();
-            int id_value =  id.ID;
+            int id_value = id.ID;
 
             if (result != null)
             {
-                
+
 
                 id_value++;                        // this code block is responsible for ID autoincrement
             }
@@ -317,10 +317,16 @@ namespace ExamQuizXammarinApp.Database
             }                       //                      <========
             await firebase
               .Child("Question")
-              .PostAsync(new Questions() { ID = id_value, Category = category,
-                  QuestionText = questionText, CorrectAnswer = correctAnswer,
-                  WrongAnswer1 = wrongAnswer1, WrongAnswer2 = wrongAnswer2,
-                  WrongAnswer3 = wrongAnswer3 });
+              .PostAsync(new Questions()
+              {
+                  ID = id_value,
+                  Category = category,
+                  QuestionText = questionText,
+                  CorrectAnswer = correctAnswer,
+                  WrongAnswer1 = wrongAnswer1,
+                  WrongAnswer2 = wrongAnswer2,
+                  WrongAnswer3 = wrongAnswer3
+              });
         }
 
         public async Task<Questions> GetAllQuestionsByCategory(string category, int id)  // This function returns question from specify category based on ID
@@ -331,6 +337,8 @@ namespace ExamQuizXammarinApp.Database
              .OnceAsync<Questions>();
             return allQuestions.Where(a => a.Category == category && a.ID == id).FirstOrDefault();
         }
+
+     
 
 
         public async Task<List<Questions>> GetAllQuestions()  //This function returns all of the records in the form of a list
@@ -347,7 +355,7 @@ namespace ExamQuizXammarinApp.Database
                   WrongAnswer2 = item.Object.WrongAnswer2,
                   WrongAnswer3 = item.Object.WrongAnswer3
 
-    }).ToList();
+              }).ToList();
         }
 
         public async Task<Questions> FindLastQuestionID(string category)  // this function is returning the highest ID in Questions table based on category
@@ -374,9 +382,7 @@ namespace ExamQuizXammarinApp.Database
             await firebase
               .Child("Question")
               .OnceAsync<Questions>();
-            return allQuestions.Where(a=>a.Category == category).OrderBy(Questions => Questions.ID).FirstOrDefault();
+            return allQuestions.Where(a => a.Category == category).OrderBy(Questions => Questions.ID).FirstOrDefault();
         }
-
-
     }
 }

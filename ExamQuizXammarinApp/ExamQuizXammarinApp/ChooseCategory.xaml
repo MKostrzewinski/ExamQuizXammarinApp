@@ -16,17 +16,9 @@
             </Picker.ItemsSource>
         </Picker>
 
-            <Label Text="Category: "/>
-            <Label x:Name="txt_question_category"/>
-            <Label Text="Question: "/>
-            <Label x:Name="txt_question"/>
-            <Label Text="Answers: "/>
-            <Label x:Name="txt_correct_answear"/>
-            <Label x:Name="txt_wrong_answear1"/>
-            <Label x:Name="txt_wrong_answear2"/>
-            <Label x:Name="txt_wrong_answear3"/>
             
-            <Button Text="Take Question" Clicked="Button_Clicked_Choose_Category" />
+            
+            <Button Text="Choose Category" Clicked="Button_Clicked_Choose_Category" />
             
                     
 

@@ -5,17 +5,18 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Picker x:Name="CategoryPicker"
-                Title="Select a category"
-                TitleColor="Red">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>History of Art</x:String>
-                        <x:String>Mathematics</x:String>
-                        <x:String>History</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <Label Text="Category: "/>
+            <Label x:Name="txt_question_category"/>
+            <Label Text="Question: "/>
+            <Label x:Name="txt_question"/>
+            <Label Text="Answers: "/>
+            <Button x:Name="txt_correct_answear" IsVisible="False" />
+            <Button x:Name="txt_wrong_answear1" IsVisible="False"  />
+            <Button x:Name="txt_wrong_answear2" IsVisible="False"  />
+            <Button x:Name="txt_wrong_answear3" IsVisible="False"  />
+            <Button x:Name="start_button" Text="Start" Clicked="Button_Clicked_Next_Question"/>
+            <Button x:Name="next_question_btn" Text="Next Question" Clicked="Button_Clicked_Next_Question" IsVisible="False"/>
+
 
         </StackLayout>
     </ContentPage.Content>
