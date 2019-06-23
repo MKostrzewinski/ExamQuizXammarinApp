@@ -95,7 +95,7 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Answear1(object sender, EventArgs e)
         {
-            if (txt_Answear1.ToString() == correctAnswear)      // This condition checks if this was the correct answer
+            if (txt_Answear1.Text.ToString() == correctAnswear)      // This condition checks if this was the correct answer
             {
                 scoreCounter++; 
                 questionsCounter++;
@@ -105,13 +105,17 @@ namespace ExamQuizXammarinApp
                 {
                     var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
 
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
+
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
 
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);     //Updating User's Score
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -130,13 +134,17 @@ namespace ExamQuizXammarinApp
                 {
                     var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
 
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
+
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
 
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);     //Updating User's Score
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -149,7 +157,7 @@ namespace ExamQuizXammarinApp
         }
         private async void Button_Clicked_Answear2(object sender, EventArgs e)
         {
-            if (txt_Answear2.ToString() == correctAnswear)
+            if (txt_Answear2.Text.ToString() == correctAnswear)
             {
                 scoreCounter++;
                 questionsCounter++;
@@ -157,7 +165,11 @@ namespace ExamQuizXammarinApp
 
                 if (questionsCounter == 10)
                 {
-                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
+
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
 
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
@@ -165,7 +177,7 @@ namespace ExamQuizXammarinApp
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -182,7 +194,11 @@ namespace ExamQuizXammarinApp
 
                 if (questionsCounter == 10)
                 {
-                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
+
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
 
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
@@ -190,7 +206,7 @@ namespace ExamQuizXammarinApp
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -204,7 +220,7 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Answear3(object sender, EventArgs e)
         {
-            if (txt_Answear3.ToString() == correctAnswear)
+            if (txt_Answear3.Text.ToString() == correctAnswear)
             {
                 scoreCounter++;
                 questionsCounter++;
@@ -212,7 +228,11 @@ namespace ExamQuizXammarinApp
 
                 if (questionsCounter == 10)
                 {
-                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
+
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
 
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
@@ -220,7 +240,7 @@ namespace ExamQuizXammarinApp
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -237,13 +257,19 @@ namespace ExamQuizXammarinApp
 
                 if (questionsCounter == 10)
                 {
-                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
+
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
 
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
 
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
+
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -257,7 +283,7 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Answear4(object sender, EventArgs e)
         {
-            if (txt_Answear4.ToString() == correctAnswear)
+            if (txt_Answear4.Text.ToString() == correctAnswear)
             {
                 scoreCounter++;
                 questionsCounter++;
@@ -265,7 +291,11 @@ namespace ExamQuizXammarinApp
 
                 if (questionsCounter == 10)
                 {
-                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
+
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
 
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
@@ -273,7 +303,7 @@ namespace ExamQuizXammarinApp
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());
@@ -290,7 +320,11 @@ namespace ExamQuizXammarinApp
 
                 if (questionsCounter == 10)
                 {
-                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+                    var result = await firebaseHelper.GetUser(Login.CurrentUserID);     // Downloading the current user's result
+
+                    string username = result.Username;
+                    string password = result.Password;
+                    string email = result.Email;
 
                     int currentUserScore = result.Score;
                     int currentUserTotalScore = result.Totalscore;
@@ -298,7 +332,7 @@ namespace ExamQuizXammarinApp
                     currentUserScore = currentUserScore + scoreCounter;
                     currentUserTotalScore = currentUserTotalScore + scoreCounter;
 
-                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore);
+                    await firebaseHelper.UpdateUserScore(Login.CurrentUserID, currentUserScore, currentUserTotalScore, username, password, email);     //Updating User's Score
 
                     await DisplayAlert("Your score:", scoreCounter.ToString(), "OK");
                     await Navigation.PushAsync(new GameMenu());

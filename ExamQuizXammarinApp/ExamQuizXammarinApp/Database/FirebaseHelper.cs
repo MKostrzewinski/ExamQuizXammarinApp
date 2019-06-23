@@ -78,16 +78,17 @@ namespace ExamQuizXammarinApp.Database
               .PutAsync(new User() { ID = userId, Username = username, Password = password, Email = email });
         }
 
-        public async Task UpdateUserScore(int userId, int userScore, int userTotalscore)
+        public async Task UpdateUserScore(int userId, int userScore, int userTotalscore, string userUsername, string userPassword, string userEmail)
         {
             var toUpdateUser = (await firebase
               .Child("Users")
               .OnceAsync<User>()).Where(a => a.Object.ID == userId).FirstOrDefault();
 
+
             await firebase
               .Child("Users")
               .Child(toUpdateUser.Key)
-              .PutAsync(new User() { ID = userId, Score = userScore, Totalscore = userTotalscore});
+              .PutAsync(new User() { ID = userId, Score = userScore, Totalscore = userTotalscore, Username = userUsername, Password = userPassword, Email = userEmail});
         }
 
 

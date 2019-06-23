@@ -30,18 +30,18 @@ namespace ExamQuizXammarinApp
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            var result = firebaseHelper.FindUserByLogin(txtUsername.Text);
+            var result = await firebaseHelper.FindUserByLogin(txtUsername.Text);
 
-            if (result != null)
-            {
-                await DisplayAlert("Fail", "This username is not available", "OK");
-                txtUsername.Text = string.Empty;
-            }
-            else
+            if (result == null)
             {
                 await firebaseHelper.AddUser(txtUsername.Text, txtPassword.Text, txtEmail.Text);
                 await DisplayAlert("Success", "User Added Successfully", "OK");
                 await Navigation.PushAsync(new Login());
+            }
+            else
+            {
+                await DisplayAlert("Fail", "This username is not available", "OK");
+                txtUsername.Text = string.Empty;
                 //txtId.Text = string.Empty;
                 // txtUsername.Text = string.Empty;
                 // txtPassword.Text = string.Empty;
