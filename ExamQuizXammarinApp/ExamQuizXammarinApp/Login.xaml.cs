@@ -7,17 +7,22 @@ using ExamQuizXammarinApp.Database;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ExamQuizXammarinApp.Database;
 
 namespace ExamQuizXammarinApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Login : ContentPage
 	{
+        FirebaseHelper firebasehelper = new FirebaseHelper();
         public static int CurrentUserID = 0;
+        public  string login;
 		public Login ()
 		{
 			InitializeComponent ();
 		}
+       
+
 
         private async void Button_Clicked_CreateAccount(object sender, EventArgs e)
         {
@@ -44,7 +49,9 @@ namespace ExamQuizXammarinApp
                 var result = await firebaseHelper.FindUserByLoginAndPassword(entryLogin.Text, entryPassword.Text);
                 if (result != null)
                 {
-                    CurrentUserID = result.ID; 
+                    CurrentUserID = result.ID;
+                    var reault = await firebasehelper.GetUser(CurrentUserID);
+                    login = reault.Username;
                     await Navigation.PushAsync(new GameMenu());
                 }
                 else
@@ -54,6 +61,7 @@ namespace ExamQuizXammarinApp
                     await Navigation.PushAsync(new Login());
                 }
             }
+            
 
         }
     }

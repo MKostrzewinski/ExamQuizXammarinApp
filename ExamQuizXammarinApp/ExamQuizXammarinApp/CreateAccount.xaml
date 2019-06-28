@@ -5,22 +5,22 @@
              x:Class="ExamQuizXammarinApp.CreateAccount">
 
     <StackLayout>
-        <StackLayout>
+        <StackLayout BackgroundColor="#f1d7bb">
             <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
                 <Image x:Name="imgBanner" Source="banner.png" ></Image>
                 <Image Margin="0,0,0,10" HeightRequest="100" Source="firebase.png" ></Image>
                 <Label Margin="0,0,0,10" Text="Create Users" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
-                <Entry x:Name="txtId" Placeholder="ID"></Entry>
-                <Entry x:Name="txtUsername" Placeholder="Username"></Entry>
-                <Entry x:Name="txtPassword" Placeholder="Password"></Entry>
-                <Entry x:Name="txtEmail" Placeholder="Email"></Entry>
+                <Entry x:Name="txtId" Placeholder="ID" BackgroundColor="#EAF2F4"></Entry>
+                <Entry x:Name="txtUsername" Placeholder="Username" BackgroundColor="#EAF2F4"></Entry>
+                <Entry x:Name="txtPassword" Placeholder="Password" BackgroundColor="#EAF2F4"></Entry>
+                <Entry x:Name="txtEmail" Placeholder="Email" BackgroundColor="#EAF2F4"></Entry>
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked"/>
-                    <Button x:Name="btnRetrive" WidthRequest="200" Text="Retrive" Clicked="BtnRetrive_Clicked"/>
+                    <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+                    <Button x:Name="btnRetrive" WidthRequest="200" Text="Retrive" Clicked="BtnRetrive_Clicked" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnUpdate" WidthRequest="200" Text="Update" Clicked="BtnUpdate_Clicked" />
-                    <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />
+                    <Button x:Name="btnUpdate" WidthRequest="200" Text="Update" Clicked="BtnUpdate_Clicked" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+                    <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
                 </StackLayout>
 
                 <ListView x:Name="lstUsers">

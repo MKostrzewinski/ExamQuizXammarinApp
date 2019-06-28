@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamQuizXammarinApp.CreateNewAdmin">
+             x:Class="ExamQuizXammarinApp.CreateNewAdmin"
+             Title="Add Admin">
     <!--Pages can be added as references or inline-->
 
-    <StackLayout>
+    <StackLayout  BackgroundColor="#f1d7bb">
 
-        <Label Text="Add Admin"/>
-        <Entry x:Name="txtUsername" Placeholder="Username"/>
-        <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
-        <Entry x:Name="txtEmail" Placeholder="Email"/>
-        <Button Text="Add" Clicked="Button_Clicked_Admin_Add"/>
+       
+        <Entry x:Name="txtUsername" Placeholder="Username" BackgroundColor="#EAF2F4"/>
+        <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" BackgroundColor="#EAF2F4"/>
+        <Entry x:Name="txtEmail" Placeholder="Email" BackgroundColor="#EAF2F4"/>
+        <Button Text="Add" Clicked="Button_Clicked_Admin_Add"  BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
 
     </StackLayout>
 

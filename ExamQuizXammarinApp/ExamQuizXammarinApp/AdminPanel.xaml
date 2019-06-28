@@ -4,11 +4,11 @@
              x:Class="ExamQuizXammarinApp.AdminPanel">
     <!--Pages can be added as references or inline-->
 
-    <StackLayout>
+    <StackLayout BackgroundColor="#f1d7bb">
 
-        <Button Text="Add Admin" Clicked="Button_Clicked_Add_Admin"/>
-        <Button Text="Verify Question" Clicked="Button_Clicked_Verify_Question"/>
-        <Button Text="Reset Test Users" Clicked="Button_Clicked_Reset_Test_Users"/>
+        <Button Text="Add Admin" Clicked="Button_Clicked_Add_Admin" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+        <Button Text="Verify Question" Clicked="Button_Clicked_Verify_Question" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+        <Button Text="Reset Test Users" Clicked="Button_Clicked_Reset_Test_Users" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
 
     </StackLayout>
 

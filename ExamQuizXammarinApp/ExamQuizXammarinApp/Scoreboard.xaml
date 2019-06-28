@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamQuizXammarinApp.Scoreboard">
 
-    <ContentPage.Content>
+    <ContentPage.Content >
 
 
 
-        <ListView x:Name="lst" >
+        <ListView x:Name="lst" BackgroundColor="#f1d7bb">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Username}" Detail="{Binding Score}"></TextCell>

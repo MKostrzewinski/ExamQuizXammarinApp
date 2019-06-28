@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamQuizXammarinApp.Game">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#f1d7bb">
 
             <Label Text="Category: "/>
             <Label x:Name="txt_question_category"/>
             <Label Text="Question: "/>
             <Label x:Name="txt_question"/>
             <Label Text="Answers: "/>
-            <Button x:Name="txt_Answear1" IsVisible="False" Clicked="Button_Clicked_Answear1"/>
-            <Button x:Name="txt_Answear2" IsVisible="False"  Clicked="Button_Clicked_Answear2"/>
-            <Button x:Name="txt_Answear3" IsVisible="False"  Clicked="Button_Clicked_Answear3"/>
-            <Button x:Name="txt_Answear4" IsVisible="False"  Clicked="Button_Clicked_Answear4"/>
-            <Button x:Name="start_button" Text="Start" Clicked="Button_Clicked_Next_Question"/>
+            <Button x:Name="txt_Answear1" IsVisible="False" Clicked="Button_Clicked_Answear1" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button x:Name="txt_Answear2" IsVisible="False"  Clicked="Button_Clicked_Answear2" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button x:Name="txt_Answear3" IsVisible="False"  Clicked="Button_Clicked_Answear3" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button x:Name="txt_Answear4" IsVisible="False"  Clicked="Button_Clicked_Answear4" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button x:Name="start_button" Text="Start" Clicked="Button_Clicked_Next_Question" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
             <!--<Button x:Name="next_question_btn" Text="Next Question" Clicked="Button_Clicked_Next_Question" IsVisible="False"/>-->
 
 

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamQuizXammarinApp.AdminPanelLogin">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#f1d7bb">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -24,11 +24,11 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label Text="Login" />
-                <Entry x:Name="entryLogin" Grid.Column="1" />
+                <Entry x:Name="entryLogin" Grid.Column="1" BackgroundColor="#EAF2F4" />
                 <Label Grid.Row="1" Text="Password" />
-                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True"/>
+                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True" BackgroundColor="#EAF2F4"/>
             </Grid>
-            <Button Text="Login" Clicked="Button_Clicked_AdminLogin" />
+            <Button Text="Login" Clicked="Button_Clicked_AdminLogin" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

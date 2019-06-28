@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamQuizXammarinApp.Login">
+             x:Class="ExamQuizXammarinApp.Login"
+             Title="Login page">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid>
+        <StackLayout BackgroundColor="#f1d7bb" >
+            <Grid  >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Login Panel" Grid.Column="1" />
+                
             </Grid>
-            <Grid>
+            <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="10*" />
@@ -23,15 +24,15 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Label Text="Login" />
-                <Entry x:Name="entryLogin" Grid.Column="1" />
-                <Label Grid.Row="1" Text="Password" />
-                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True"/>
+                <Label Text="Login" TextColor="#717d84" />
+                <Entry x:Name="entryLogin" Grid.Column="1" BackgroundColor="#EAF2F4" />
+                <Label Grid.Row="1" Text="Password" TextColor="#717d84" />
+                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True" BackgroundColor="#EAF2F4"/>
 
             </Grid>
-            <Button Text="Login" Clicked="Button_Clicked_Login" />
-            <Button Text="Create Account" Clicked="Button_Clicked_CreateAccount"/>
-            <Button Text="Go to admin panel" Clicked="Button_Clicked_AdminPanelLogin"/>
+            <Button Text="Login" Clicked="Button_Clicked_Login" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button Text="Create Account" Clicked="Button_Clicked_CreateAccount" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
+            <Button Text="Go to admin panel" Clicked="Button_Clicked_AdminPanelLogin" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

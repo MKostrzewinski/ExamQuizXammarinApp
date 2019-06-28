@@ -3,16 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamQuizXammarinApp.VerifyQuestions">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#f1d7bb">
             <Label x:Name="txt_question_category"/>
             <Label x:Name="txt_question"/>
             <Label x:Name="txt_correct_answear"/>
             <Label x:Name="txt_wrong_answear1"/>
             <Label x:Name="txt_wrong_answear2"/>
             <Label x:Name="txt_wrong_answear3"/>
-            <Button Text="Take Question" Clicked="Button_Clicked_Take_Question"/>
-            <Button Text="Delete Question" Clicked="Button_Clicked_Delete_Question"/>
-            <Button Text="Add Question" Clicked="Button_Clicked_Add_Question"/>
+            <Button Text="Take Question" Clicked="Button_Clicked_Take_Question" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button Text="Delete Question" Clicked="Button_Clicked_Delete_Question" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+            <Button Text="Add Question" Clicked="Button_Clicked_Add_Question" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
 
         </StackLayout>
     </ContentPage.Content>
