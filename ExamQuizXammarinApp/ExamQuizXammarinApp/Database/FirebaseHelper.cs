@@ -122,7 +122,7 @@ namespace ExamQuizXammarinApp.Database
         }
 
 
-        private async Task<User> FindLastUserID()  // this function is returning the highest ID in User table
+        public async Task<User> FindLastUserID()  // this function is returning the highest ID in User table
         {
             var allUsers = await GetAllUsers();
             await firebase

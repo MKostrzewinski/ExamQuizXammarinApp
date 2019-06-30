@@ -20,13 +20,6 @@ namespace ExamQuizXammarinApp
         {
             InitializeComponent();
         }
-        protected async override void OnAppearing()
-        {
-
-            base.OnAppearing();
-            var allUsers = await firebaseHelper.GetAllUsers();
-            lstUsers.ItemsSource = allUsers;
-        }
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {

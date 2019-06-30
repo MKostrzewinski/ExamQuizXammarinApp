@@ -1,34 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamQuizXammarinApp.AdminPanelLogin">
+             x:Class="ExamQuizXammarinApp.AdminPanelLogin"
+             Title="Admin Panel Login">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#f1d7bb">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="3*" />
-                </Grid.ColumnDefinitions>
-                <Label Text="Admin Panel Login" Grid.Column="1" />
-            </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="10*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="10" />
                     <RowDefinition Height="52" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="52" />
+                    <RowDefinition Height="52" />
                 </Grid.RowDefinitions>
-                <Label Text="Login" />
-                <Entry x:Name="entryLogin" Grid.Column="1" BackgroundColor="#EAF2F4" />
-                <Label Grid.Row="1" Text="Password" />
-                <Entry x:Name="entryPassword" Grid.Row="1" Grid.Column="1" IsPassword="True" BackgroundColor="#EAF2F4"/>
+                <Label Text="Login" Grid.Row="2"/>
+                <Entry x:Name="entryLogin" Grid.Column="1" BackgroundColor="#EAF2F4" Grid.Row="2"/>
+                <Label Grid.Row="3" Text="Password" />
+                <Entry x:Name="entryPassword" Grid.Row="3" Grid.Column="1" IsPassword="True" BackgroundColor="#EAF2F4"/>
             </Grid>
-            <Button Text="Login" Clicked="Button_Clicked_AdminLogin" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
+            <Button Text="Login" Clicked="Button_Clicked_AdminLogin" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" Grid.Row="4"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

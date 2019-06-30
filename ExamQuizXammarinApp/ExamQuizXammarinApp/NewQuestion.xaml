@@ -5,25 +5,33 @@
              Title="Suggest a question">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#f1d7bb">
-            <Grid>
+            <!--<Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="3*" />
                 </Grid.ColumnDefinitions>
                
-            </Grid>
+            </Grid>-->
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10*" />
                     <ColumnDefinition Width="10*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="7" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="38" />
+                    <RowDefinition Height="40" />
+                    <!--<RowDefinition Height="*" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="52" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />-->
                 </Grid.RowDefinitions>
+                <Label Text="Select" Grid.Row="1" />
                 <Picker x:Name="CategoryPicker"
                 Grid.Column="1"
                 Grid.Row="1"
@@ -47,9 +55,11 @@
                 <Entry x:Name="entryWrongAnswer2" Grid.Row="5" Grid.Column="1" BackgroundColor="#EAF2F4"/>
                 <Label Grid.Row="6" Text="Wrong Answer 3" />
                 <Entry x:Name="entryWrongAnswer3" Grid.Row="6" Grid.Column="1" BackgroundColor="#EAF2F4"/>
+                
+                <Button Text="Submit" Clicked="Button_Clicked_Submit" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" Grid.Column="1" Grid.Row="7"/>
 
             </Grid>
-            <Button Text="Submit" Clicked="Button_Clicked_Submit" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

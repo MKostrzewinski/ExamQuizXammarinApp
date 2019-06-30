@@ -52,5 +52,14 @@ namespace ExamQuizXammarinApp
             await DisplayAlert(title, result.Score.ToString(), "OK");
         }
 
+        private async void Button_Clicked_My_Total_Score(object sender, EventArgs e)
+        {
+            FirebaseHelper firebaseHelper = new FirebaseHelper();
+
+            var result = await firebaseHelper.GetUser(Login.CurrentUserID);
+            string title = "Total score of " + result.Username + ":";
+            await DisplayAlert(title, result.Totalscore.ToString(), "OK");
+        }
+
     }
 }

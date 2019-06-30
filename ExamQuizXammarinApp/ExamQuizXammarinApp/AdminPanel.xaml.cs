@@ -32,7 +32,7 @@ namespace ExamQuizXammarinApp
 
         private async void Button_Clicked_Reset_Test_Users(object sender, EventArgs e)
         {
-            var res = await DisplayAlert("Are you sure?", "This action generates a lot of data traffic and may take some time", "Ok", "Cancel");
+            var res = await DisplayAlert("Are you sure?", "This action generates a lot of data traffic and may take some time", "Continue", "Cancel");
             if (res)
             {
                 DoReset();
@@ -69,5 +69,40 @@ namespace ExamQuizXammarinApp
             }
             await DisplayAlert("Succes!", "Test users have been reset", "OK");
         }
+
+        private async void Button_Clicked_Reset_Score(object sender, EventArgs e)
+        {
+            var res2 = await DisplayAlert("Are you sure?", "The score should NOT be reset more often than once a week! By the way it generates very large data traffic", "Continue", "Cancel");
+            if (res2)
+            {
+                DoScoreReset();
+            }
+        }
+
+        private async void DoScoreReset()
+        {
+            await DisplayAlert("Score resetting is in progress", "It may take a few minutes", "Ok");
+            FirebaseHelper firebaseHelper = new FirebaseHelper();
+
+            var result = await firebaseHelper.FindLastUserID();     //finding last User
+            int lastUser = result.ID;
+            lastUser++;
+            int ZeroValue = 0;      // just for clarity
+            
+
+            for(int i = 1; i < lastUser; i++)       // Updating all users by Id, one by one.
+            {
+                var result2 = await firebaseHelper.GetUser(i);
+
+                if(result2 != null)
+                {
+                    await firebaseHelper.UpdateUserScore(i, ZeroValue, result2.Totalscore, result2.Username, result2.Password, result2.Email);
+                }
+            }
+
+
+            await DisplayAlert("Succes!", "Scoreboard have been reset", "OK");
+        }
+
     }
 }

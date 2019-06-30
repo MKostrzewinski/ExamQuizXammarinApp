@@ -2,28 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"  
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
              xmlns:local="clr-namespace:ExamQuizXammarinApp" 
-             x:Class="ExamQuizXammarinApp.CreateAccount">
+             x:Class="ExamQuizXammarinApp.CreateAccount"
+             Title="Create Account">
 
-    <StackLayout>
-        <StackLayout BackgroundColor="#f1d7bb">
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                <Label Margin="0,0,0,10" Text="Create Users" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
-                <Entry x:Name="txtUsername" Placeholder="Username" BackgroundColor="#EAF2F4"></Entry>
-                <Entry x:Name="txtPassword" Placeholder="Password" BackgroundColor="#EAF2F4"></Entry>
-                <Entry x:Name="txtEmail" Placeholder="Email" BackgroundColor="#EAF2F4"></Entry>
-                <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
-                </StackLayout>
+    <StackLayout BackgroundColor="#f1d7bb">
 
-                <ListView x:Name="lstUsers">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding Name}"></TextCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+                <Entry x:Name="txtUsername" Placeholder="Username" BackgroundColor="#EAF2F4" Grid.Row="1"></Entry>
+                <Entry x:Name="txtPassword" Placeholder="Password" BackgroundColor="#EAF2F4" Grid.Row="2"></Entry>
+                <Entry x:Name="txtEmail" Placeholder="Email" BackgroundColor="#EAF2F4" Grid.Row="3"></Entry>
+                <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" Grid.Row="4"/>
+        </Grid>
     </StackLayout>
 
 </ContentPage>  

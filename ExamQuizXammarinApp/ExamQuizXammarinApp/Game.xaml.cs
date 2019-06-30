@@ -44,9 +44,6 @@ namespace ExamQuizXammarinApp
 
         private async void Function_For_Next_Question()
         {
-
-            
-
             var min_id = await firebaseHelper.FindFirstQuestionID(category_name);  // get min question id value from chosen category
             int min_id_value = min_id.ID;
             var max_id = await firebaseHelper.FindLastQuestionID(category_name);   // // get max question id value from chosen category

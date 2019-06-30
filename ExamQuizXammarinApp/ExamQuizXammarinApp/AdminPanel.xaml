@@ -1,14 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamQuizXammarinApp.AdminPanel">
+             x:Class="ExamQuizXammarinApp.AdminPanel"
+             Title="Admin Panel">
     <!--Pages can be added as references or inline-->
 
     <StackLayout BackgroundColor="#f1d7bb">
 
         <Button Text="Add Admin" Clicked="Button_Clicked_Add_Admin" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
         <Button Text="Verify Question" Clicked="Button_Clicked_Verify_Question" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
-        <Button Text="Reset Test Users" Clicked="Button_Clicked_Reset_Test_Users" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+        <Button Text="Reset Test Users" Clicked="Button_Clicked_Reset_Test_Users" BackgroundColor="#FF6347" BorderColor="#A4C9D7"/>
+        <Button Text="Reset Scoreboard" Clicked="Button_Clicked_Reset_Score" BackgroundColor="#FF6347" BorderColor="#A4C9D7"/>
 
     </StackLayout>
 
