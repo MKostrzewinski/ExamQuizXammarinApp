@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamQuizXammarinApp.GameMenu">
+             x:Class="ExamQuizXammarinApp.GameMenu"
+             Title="Game Menu">
 
     <ContentPage.Content>
 
@@ -22,14 +23,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Label  Text="Username" Grid.Column="2" Grid.Row="1" ></Label>
 
-                <Button Text="Settings" Grid.Column="2" Grid.Row="2" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
-                <Button Text="Suggest a question"  Clicked="Button_Clicked_SuggestQuestion" Grid.Column="2" Grid.Row="3" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"  />
-                <Button Text="New Game" Clicked="Button_Clicked_New_Game" Grid.Column="2" Grid.Row="4" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
-                <Label Text="Your Score" Grid.Column="2" Grid.Row="5"></Label>
-                <Label Text="Your TotalScore" Grid.Column="2" Grid.Row="6"></Label>
-                <Button Text="Scoreboard" Clicked="Button_Clicked_Scoreboard" Grid.Column="2" Grid.Row="6" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+                <Button Text="Settings" Clicked="Button_Clicked_Settings" Grid.Column="2" Grid.Row="1" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7" />
+                <Button Text="Suggest a question"  Clicked="Button_Clicked_SuggestQuestion" Grid.Column="2" Grid.Row="2" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"  />
+                <Button Text="New Game" Clicked="Button_Clicked_New_Game" Grid.Column="2" Grid.Row="3" BackgroundColor="#00FF7F" BorderColor="#A4C9D7" />
+                <Button Text="Scoreboard" Clicked="Button_Clicked_Scoreboard" Grid.Column="2" Grid.Row="4" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+                <Button Text="My Score" Clicked="Button_Clicked_My_Score" Grid.Column="2" Grid.Row="5" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+
             </Grid>
         </StackLayout>
 

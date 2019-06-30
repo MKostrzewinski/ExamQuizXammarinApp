@@ -25,9 +25,11 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Picker x:Name="CategoryPicker"
-                Title="Select a category"
-                TitleColor="Red">
-                    <Picker.ItemsSource BackgroundColor="#EAF2F4">
+                Grid.Column="1"
+                Grid.Row="1"
+                Title=" Category "
+                BackgroundColor="#EAF2F4">
+                    <Picker.ItemsSource >
                         <x:Array Type="{x:Type x:String}">
                             <x:String>History of Art</x:String>
                             <x:String>Mathematics</x:String>

@@ -7,7 +7,6 @@ using ExamQuizXammarinApp.Database;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using ExamQuizXammarinApp.Database;
 
 namespace ExamQuizXammarinApp
 {
@@ -16,7 +15,7 @@ namespace ExamQuizXammarinApp
 	{
         FirebaseHelper firebasehelper = new FirebaseHelper();
         public static int CurrentUserID = 0;
-        public  string login;
+        public static string login;
 		public Login ()
 		{
 			InitializeComponent ();

@@ -1,12 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamQuizXammarinApp.Settings">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="ExamQuizXammarinApp.Settings"
+             Title="Settings">
+    <!--Pages can be added as references or inline-->
+
+    <StackLayout BackgroundColor="#f1d7bb">
+
+        <Button Text="Change Login" Clicked="Button_Clicked_Change_Login" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+        <Button Text="Change Password" Clicked="Button_Clicked_Change_Password" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+        <Button Text="Change Email" Clicked="Button_Clicked_Change_Email" BackgroundColor="#EAF2F4" BorderColor="#A4C9D7"/>
+        <Button Text="Delete User" Clicked="Button_Clicked_Delete_User" BackgroundColor="#FF6347" BorderColor="#A4C9D7"/>
+
+    </StackLayout>
+
 </ContentPage>

@@ -50,45 +50,6 @@ namespace ExamQuizXammarinApp
                 //lstUsers.ItemsSource = allUsers;
             }
         }
-
-        private async void BtnRetrive_Clicked(object sender, EventArgs e)
-        {
-            var user = await firebaseHelper.GetUser(Convert.ToInt32(txtId.Text));
-            if (user != null)
-            {
-                txtId.Text = user.ID.ToString();
-                txtUsername.Text = user.Username;
-                txtPassword.Text = user.Password;
-                txtEmail.Text = user.Email;
-                await DisplayAlert("Success", "User Retrive Successfully", "OK");
-
-            }
-            else
-            {
-                await DisplayAlert("Success", "No User Available", "OK");
-            }
-
-        }
-
-        private async void BtnUpdate_Clicked(object sender, EventArgs e)
-        {
-            await firebaseHelper.UpdateUser(Convert.ToInt32(txtId.Text), txtUsername.Text, txtPassword.Text, txtEmail.Text);
-            txtId.Text = string.Empty;
-            txtUsername.Text = string.Empty;
-            txtPassword.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            await DisplayAlert("Success", "User Updated Successfully", "OK");
-            var allUsers = await firebaseHelper.GetAllUsers();
-            lstUsers.ItemsSource = allUsers;
-        }
-
-        private async void BtnDelete_Clicked(object sender, EventArgs e)
-        {
-            await firebaseHelper.DeleteUser(Convert.ToInt32(txtId.Text));
-            await DisplayAlert("Success", "User Deleted Successfully", "OK");
-            var allUsers = await firebaseHelper.GetAllUsers();
-            lstUsers.ItemsSource = allUsers;
-        }
-
+    
     }
 }
